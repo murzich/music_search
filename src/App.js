@@ -17,28 +17,32 @@ class App extends Component {
         };
     }
 
-    fetchSongs = (query) => {
-        fetch("https://itunes.apple.com/search?limit=10&term=" + this.encodeAPIURI(query))
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        // isLoaded: true,
-                        songsList: result.results
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        // isLoaded: true,
-                        error
-                    });
-                }
-            )
+    // fetchSongs = (query) => {
+    //     fetch("https://itunes.apple.com/search?limit=10&term=" + this.encodeAPIURI(query))
+    //         .then(res => res.json())
+    //         .then(
+    //             (result) => {
+    //                 this.setState({
+    //                     // isLoaded: true,
+    //                     songsList: result.results
+    //                 });
+    //             },
+    //             (error) => {
+    //                 this.setState({
+    //                     // isLoaded: true,
+    //                     error
+    //                 });
+    //             }
+    //         )
+    // }
+
+    getSongsList = (songsArray) => {
+        this.setState({ songsList: songsArray });
     }
 
     handleSearch = (e) => {
         this.setState({ searchQuery: e.target.value, error: null });
-        this.fetchSongs(e.target.value);
+        // this.fetchSongs(e.target.value);
     }
 
     encodeAPIURI = (value) => {
@@ -53,7 +57,9 @@ class App extends Component {
                     Hello~~!
                     <Search
                         callback={this.handleSearch}
-                        value={this.state.searchQuery} />
+                        value={this.state.searchQuery} 
+                        getSongs={this.getSongsList}
+                    />
                 </header>
                 <SongsList songsList={this.state.songsList} />
             </div>
