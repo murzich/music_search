@@ -5,14 +5,13 @@ const SongsList = (props) => {
 
     const listItems = props.songsList.map((track) => {
         return (
-            <li key={track.trackId} className="list__item" >
-                <SongsItem track={track} />
-            </li>
+            <SongsItem key={track.trackId} track={track} />
         )
     })
 
+    const ListTitle = () => {
     return (
-        <div>
+        <div className="list__title" >
             <div>
                 Artist
             </div>
@@ -25,10 +24,16 @@ const SongsList = (props) => {
             <div>
                 Genre
             </div>
-            <ul className="list" >
+        </div>
+    )}
+
+    return (
+        <main className="list" >
+            <ListTitle />
+            <ul className="list__songs" >
                 {listItems}
             </ul>
-        </div>
+        </main>
     )
 }
 

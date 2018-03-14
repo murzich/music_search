@@ -3,7 +3,7 @@ import React from 'react';
  const SongsItem = (props) => {
     const item = props.track;
     return (
-        <div className="songs">
+        <li className="songs">
             <img 
                 src={item.artworkUrl60} 
                 alt={`album artwork ${item.artistName} - ${item.collectionName}`} 
@@ -24,7 +24,7 @@ import React from 'react';
             {/* Button and details; */}
                 +
             </div>
-        </div>
+        </li>
     )
 }
 
