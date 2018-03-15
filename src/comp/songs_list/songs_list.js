@@ -3,9 +3,9 @@ import SongsItem from '../songs_item/songs_item';
 
 const SongsList = (props) => {
 
-    const listItems = props.songsList.map((track) => {
+    const listItems = props.songsList.map((item) => {
         return (
-            <SongsItem key={track.trackId} track={track} />
+            <SongsItem key={item.trackId} item={item} />
         )
     })
 

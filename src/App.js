@@ -51,13 +51,13 @@ class App extends Component {
     }
 
     render() {
+        const value = this.state.searchQuery;
         return (
             <div>
                 <header>
-                    Hello~~!
                     <Search
                         callback={this.handleSearch}
-                        value={this.state.searchQuery} 
+                        value={value} 
                         getSongs={this.getSongsList}
                     />
                 </header>

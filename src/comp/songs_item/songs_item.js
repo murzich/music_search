@@ -1,29 +1,34 @@
 import React from 'react';
+import SongsDetails from '../songs_details/songs_details'
 
  const SongsItem = (props) => {
-    const item = props.track;
+    const track = props.item;
     return (
-        <li className="songs">
+        <li 
+            className="songs" 
+            onClick={e=>console.log(e.target)} 
+        >
             <img 
-                src={item.artworkUrl60} 
-                alt={`album artwork ${item.artistName} - ${item.collectionName}`} 
+                src={track.artworkUrl100} 
+                alt={`album artwork ${track.artistName} - ${track.collectionName}`} 
                 className="songs__artwork" />
             <h3 className="songs__artist">
-                {item.artistName}
+                {track.artistName}
             </h3>
             <div className="songs__track">
-                {item.trackName}
+                {track.trackName}
             </div>
             <div className="songs__collection">
-                {item.collectionName}
+                {track.collectionName}
             </div>
             <div className="songs__genre">
-                {item.primaryGenreName}
+                {track.primaryGenreName}
             </div>
             <div className="songs__details">
             {/* Button and details; */}
                 +
             </div>
+            <SongsDetails track={track} />
         </li>
     )
 }
