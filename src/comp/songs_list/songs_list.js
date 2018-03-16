@@ -2,16 +2,58 @@ import React from 'react';
 import SongsItem from '../songs_item/songs_item';
 import './songs_list.css';
 
-const SongsList = (props) => {
+class SongsList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            expandedItem: -1
+        };
+    }
 
-    const listItems = props.songsList.map((item) => {
+    render() {
+        const listItems = this.props.songsList.map((item, i) => {
+            return (
+                <SongsItem 
+                    key={item.trackId} 
+                    item={item} 
+                    id={i} 
+                    callback={this.handleClick} 
+                    expanded={ this.state.expandedItem === i }
+                />
+            )
+        });
+
+        // console.log(this.state);
+
         return (
-            <SongsItem key={item.trackId} item={item} />
+            <main className="list" >
+                <ListTitle listLength={listItems.length}/>
+                <ul className="list__songs" >
+                    {listItems}
+                </ul>
+            </main>
         )
-    })
+    }
 
-    const ListTitle = () => {
-    return (
+    handleClick = (id) => {
+        this.setState( (prevState) => {
+            if (prevState.expandedItem === id) {
+                return {expandedItem: -1};
+            } else {
+                return {expandedItem: id};
+            }
+        });
+        console.log('id:',id)
+    }
+}
+
+const ListTitle = ( {listLength} ) => {
+    
+    return !listLength ? (
+        <h2 className="list__dummy" >
+            Input right request!
+        </h2>
+    ) : (
         <header className="list__header" >
             <div className="list__title">
                 Artist
@@ -26,15 +68,6 @@ const SongsList = (props) => {
                 Genre
             </div>
         </header>
-    )}
-
-    return (
-        <main className="list" >
-            <ListTitle />
-            <ul className="list__songs" >
-                {listItems}
-            </ul>
-        </main>
     )
 }
 

@@ -1,5 +1,5 @@
 .details {
-    display: none;
+    display: block;
     grid-area: 2/2/3/-2;
     @media screen and (max-width: 578px) {
         grid-area: -1/1/-1/3;
@@ -31,6 +31,6 @@
     }
 }
 
-.song:hover .details {
-    display: block;
-}
+// .song:hover .details {
+//     display: block;
+// }

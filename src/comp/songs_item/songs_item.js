@@ -4,10 +4,15 @@ import './songs_item.css';
 
  const SongsItem = (props) => {
     const track = props.item;
+
+    const handleClick = () => {
+        props.callback(props.id);
+    }
+
     return (
         <li 
             className="song" 
-            onClick={e=>console.log(e.target)} 
+            onClick={handleClick} 
         >
             <img 
                 src={track.artworkUrl100} 
@@ -29,7 +34,7 @@ import './songs_item.css';
             {/* Button and details; */}
                 +
             </div>
-            <SongsDetails track={track} />
+            <SongsDetails track={track} expanded={props.expanded}/>
         </li>
     )
 }
