@@ -5,8 +5,8 @@ import searchIcon from './search.svg'
 
 const SearchBar = (props) => {
 
-    const fetchSongs = (query, limit = 4) => {
-        fetch(`https://itunes.apple.com/search?limit=${limit}&term=${encodeAPIURI(query)}`)
+    const fetchSongs = (query, limit = 5, media = 'music') => {
+        fetch(`https://itunes.apple.com/search?term=${encodeAPIURI(query)}&limit=${limit}&media=${media}`)
             .then(res => res.json())
             .then(
                 (result) => {
