@@ -1,0 +1,22 @@
+.list {
+
+    &__header {
+        font-size: 12px;
+        display: grid;
+        padding: 15px;        
+        grid-gap: 30px;        
+        grid-template-columns: 106px repeat(4, 1fr) 64px;
+        & div:first-child {
+            grid-column-start: 2;
+        }
+        @media screen and (max-width: 578px) {
+            display: none;
+
+        }
+    }
+
+    &__songs {
+        padding: 0;
+        list-style: none;
+    }
+}

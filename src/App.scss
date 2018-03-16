@@ -1,0 +1,33 @@
+:root {
+    --primary-color: black;
+    --primary-bg-color: #eef7ff;
+    --heading-color: #4b4744;
+    --note-color: #8e8f91;
+    --secondary-bg-color: #ccdff0;    
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    font: 400 normal 12px/1 Arial, sans-serif;
+    background: var(--primary-bg-color);
+    color: var(--primary-color);
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.header {
+    padding: 20px 0px;
+    min-height: 80px;
+    text-align: center;
+}

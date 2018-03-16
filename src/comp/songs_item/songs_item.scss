@@ -1,0 +1,66 @@
+.song {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 106px repeat(4, 1fr) 64px;
+    padding: 15px;
+    background-color: #ccdff0;
+    align-items: center;
+    &:nth-child(2n) {
+        background-color: #eef7ff;
+    }
+    @media screen and (max-width: 578px) {
+        grid-row-gap: 15px;
+        grid-template-columns: 106px 1fr;
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-areas: 
+            "artwork artist"
+            "artwork track"
+            "artwork collection"
+            "artwork genre"
+            "artwork details"
+    }
+    &__artwork {
+        align-self: start;
+        border: 3px solid #001187;
+        max-width: 106px;
+        @media screen and (max-width: 578px) {
+            grid-area: artwork;
+        }
+    }
+    &__artist {
+        font: inherit;
+        font-weight: 700;
+        margin: 0;
+    }
+    &__details {
+        text-align: center;
+        position: relative;
+        transition: transform .4s ease-in-out;
+        justify-content: center;
+        display: inline-block;
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 8px;
+            background: #000;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }
+        &::after {
+            transition: transform .4s ease-in-out;
+            transform: rotate(90deg);
+        }
+        &:hover {
+            transform: rotate(360deg);
+            // transform-origin: 30px 30px;
+        }
+        &:hover::after {
+            transform: rotate(0deg);
+        }
+    }
+}

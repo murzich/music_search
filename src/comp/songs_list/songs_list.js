@@ -1,5 +1,6 @@
 import React from 'react';
 import SongsItem from '../songs_item/songs_item';
+import './songs_list.css';
 
 const SongsList = (props) => {
 
@@ -11,20 +12,20 @@ const SongsList = (props) => {
 
     const ListTitle = () => {
     return (
-        <div className="list__title" >
-            <div>
+        <header className="list__header" >
+            <div className="list__title">
                 Artist
             </div>
-            <div>
+            <div className="list__title">
                 Track
             </div>
-            <div>
+            <div className="list__title">
                 Collection
             </div>
-            <div>
+            <div className="list__title">
                 Genre
             </div>
-        </div>
+        </header>
     )}
 
     return (

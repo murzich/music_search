@@ -1,4 +1,5 @@
 import React from 'react';
+import './songs_details.css';
 
 const SongsDetails = (props) => {
 
@@ -10,11 +11,12 @@ const SongsDetails = (props) => {
     console.log('props-details', props);
 
     return (
-        <div>
-            <h2>
-                {props.track.artistName} - {props.track.trackName} &#x266b;
+        <div className="details" >
+            <h2 className="details__title" >
+                {props.track.artistName} - {props.track.trackName} 
+                <span className="details__icon" > &#x266b;</span>
                 </h2>
-            <div>
+            <div className="details__info">
                 <div>
                     <span className="details__description" >Collection: </span>
                     {props.track.collectionName}

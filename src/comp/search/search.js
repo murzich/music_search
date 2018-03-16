@@ -1,6 +1,7 @@
 import React from 'react';
 import { DebounceInput } from 'react-debounce-input';
 import './search.css'
+import searchIcon from './search.svg'
 
 const SearchBar = (props) => {
 
@@ -49,7 +50,12 @@ const SearchBar = (props) => {
             <button
                 type="submit"
                 className="search__button"
-            >search</button>
+            >
+                <img 
+                    className="search__icon"
+                    src={searchIcon}
+                    alt="search" />
+            </button>
         </form>
     )
 }

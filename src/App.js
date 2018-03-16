@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Search from './comp/search/search';
 import SongsList from './comp/songs_list/songs_list';
+import './App.css'
 
 //TEMP
 // import iTunesAPIResponse from './itunes.json'
@@ -53,8 +54,8 @@ class App extends Component {
     render() {
         const value = this.state.searchQuery;
         return (
-            <div>
-                <header>
+            <div className="wrapper" >
+                <header className="header" >
                     <Search
                         callback={this.handleSearch}
                         value={value} 
