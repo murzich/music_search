@@ -8,7 +8,6 @@ const SongsDetails = (props) => {
         let seconds = ((millis % 60000) / 1000).toFixed(0);
         return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
-    // console.log('props-details', props);
 
     return !props.expanded ? (
         ""

@@ -59,7 +59,6 @@ class SongsList extends React.Component {
                 return {expandedItem: id};
             }
         });
-        console.log('id:',id)
     }
 }
 

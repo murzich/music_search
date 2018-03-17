@@ -41,7 +41,7 @@ const SearchBar = (props) => {
         >
             <DebounceInput
                 minLength={2}
-                debounceTimeout={1000}
+                debounceTimeout={300}
                 className="search__bar"
                 onChange={handleChange}
                 value={props.value}
