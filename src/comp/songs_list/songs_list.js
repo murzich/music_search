@@ -25,29 +25,28 @@ class SongsList extends React.Component {
             )
         });
 
-        // console.log(this.state);
-
         return (
             <main className="list" >
-                <ListTitle listLength={listItems.length}/>
-                <ul className="list__songs" >
-                    <ReactCSSTransitionGroup
-                        transitionName={{
-                            appear: 'animated',
-                            appearActive: 'fadeInDown',
-                            leave: 'animated',
-                            leaveActive: 'pulse',
-                            enter: 'animated',
-                            enterActive: 'fadeIn'
-                        }}
-                        transitionAppear={true}
-                        transitionAppearTimeout={500}
-                        transitionEnterTimeout={500}
-                        transitionLeaveTimeout={300}>
+                <ListTitle listLength={listItems.length} />
 
-                        {listItems}
-                    </ReactCSSTransitionGroup>
-                </ul>
+                <ReactCSSTransitionGroup
+                    component="ul"
+                    className="list__songs"
+                    transitionName={{
+                        appear: 'animated',
+                        appearActive: 'fadeInDown',
+                        leave: 'animated',
+                        leaveActive: 'pulse',
+                        enter: 'animated',
+                        enterActive: 'fadeIn'
+                    }}
+                    transitionAppear={true}
+                    transitionAppearTimeout={500}
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}>
+
+                    {listItems}
+                </ReactCSSTransitionGroup>
             </main>
         )
     }
@@ -68,7 +67,7 @@ const ListTitle = ( {listLength} ) => {
     
     return !listLength ? (
         <h2 className="list__dummy" >
-            Input right request!
+            Please, input your request!
         </h2>
     ) : (
         <header className="list__header" >

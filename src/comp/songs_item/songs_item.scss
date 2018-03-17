@@ -1,11 +1,11 @@
 .song {
+    position: relative;
     display: grid;
     grid-column-gap: 30px;
     grid-template-columns: 106px repeat(4, 1fr) 64px;
     padding: 15px;
     background-color: #ccdff0;
     align-items: center;
-    // transform: translateX(0);
     &:nth-child(2n) {
         background-color: #eef7ff;
     }
@@ -20,8 +20,13 @@
             "artwork genre"
             "artwork details"
     }
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
     &__artwork {
-        align-self: start;
+        align-self: flex-start;
         border: 3px solid #001187;
         max-width: 106px;
         @media screen and (max-width: 578px) {
@@ -30,18 +35,23 @@
     }
     &__artist {
         font: inherit;
-        font-weight: 700;
         margin: 0;
     }
     &__details {
+        display: inline-block;
         height: 30px;
+        width: 30px;
         border: none;
         background: transparent;
         text-align: center;
         position: relative;
         transition: transform .2s ease-in-out, opacity .4s ease;
         justify-content: center;
-        display: inline-block;
+        @media screen and (max-width: 578px) {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
         &::before,
         &::after {
             content: '';
@@ -70,6 +80,7 @@
             opacity: .5;
         }
     }
+
     // Animation
     @for $i from 0 through 4 {
         &:nth-child(#{$i + 1}) {
@@ -79,29 +90,4 @@
             animation-delay: .05s * $i;
         }
     }
-
-    // &-enter {
-    //     opacity: 0.01;
-
-    //     &-active {
-    //         opacity: 1;
-    //         transition: opacity 500ms ease-in;
-    //     }
-    // }
-    // &-leave {
-    //     opacity: 1;
-
-    //     &-active {
-    //         opacity: 0.01;
-    //         transition: opacity 300ms ease-in;
-    //     }
-    // }
-    // &-appear {
-    //     opacity: 0.01;
-        
-    //     &-active {
-    //       opacity: 1;
-    //       transition: opacity .5s ease-in;
-    //     }
-    // }
 }

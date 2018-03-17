@@ -14,8 +14,7 @@ const SearchBar = (props) => {
                 },
                 (error) => {
                     console.log(error);
-                    // TODO: catch errors and render;
-                    return "sorry"
+                    return "error"
                 }
             );
     }
@@ -46,6 +45,7 @@ const SearchBar = (props) => {
                 className="search__bar"
                 onChange={handleChange}
                 value={props.value}
+                placeholder="Search music..."
             />
             <button
                 type="submit"

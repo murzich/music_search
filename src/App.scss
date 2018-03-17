@@ -1,11 +1,3 @@
-:root {
-    --primary-color: black;
-    --primary-bg-color: #eef7ff;
-    --heading-color: #4b4744;
-    --note-color: #8e8f91;
-    --secondary-bg-color: #ccdff0;    
-}
-
 *,
 ::before,
 ::after {
@@ -13,9 +5,9 @@
 }
 
 body {
-    font: 400 normal 12px/1 Arial, sans-serif;
-    background: var(--primary-bg-color);
-    color: var(--primary-color);
+    font: 400 normal 16px/1 Arial, sans-serif;
+    background: #eef7ff;
+    color: black;
     padding: 0;
     margin: 0;
 }

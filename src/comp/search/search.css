@@ -2,7 +2,7 @@
   font-size: 0;
   white-space: nowrap; }
   .search__bar {
-    font-size: 10px;
+    font-size: 14px;
     min-width: 300px;
     height: 40px;
     padding: 14px 16px;
@@ -18,7 +18,7 @@
         width: calc(100% - 50px);
         max-width: 300px; } }
   .search__button {
-    font-size: 10px;
+    font-size: 14px;
     min-width: 50px;
     height: 40px;
     padding: 1px 16px;
