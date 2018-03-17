@@ -9,6 +9,12 @@ import './songs_item.css';
         props.callback(props.id);
     }
 
+    const buttonClass = props.expanded ? (
+        "song__details song__details--exp"
+    ) : (
+        "song__details"
+    );
+
     return (
         <li 
             className="song" 
@@ -30,10 +36,10 @@ import './songs_item.css';
             <div className="song__genre">
                 {track.primaryGenreName}
             </div>
-            <div className="song__details">
+            <button className={buttonClass} >
             {/* Button and details; */}
                 +
-            </div>
+            </button>
             <SongsDetails track={track} expanded={props.expanded}/>
         </li>
     )

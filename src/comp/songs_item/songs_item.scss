@@ -1,10 +1,11 @@
 .song {
     display: grid;
-    grid-gap: 30px;
+    grid-column-gap: 30px;
     grid-template-columns: 106px repeat(4, 1fr) 64px;
     padding: 15px;
     background-color: #ccdff0;
     align-items: center;
+    // transform: translateX(0);
     &:nth-child(2n) {
         background-color: #eef7ff;
     }
@@ -33,9 +34,12 @@
         margin: 0;
     }
     &__details {
+        height: 30px;
+        border: none;
+        background: transparent;
         text-align: center;
         position: relative;
-        transition: transform .4s ease-in-out;
+        transition: transform .2s ease-in-out, opacity .4s ease;
         justify-content: center;
         display: inline-block;
         &::before,
@@ -52,15 +56,52 @@
             margin: auto;
         }
         &::after {
-            transition: transform .4s ease-in-out;
+            transition: transform .2s ease-in-out;
             transform: rotate(90deg);
         }
-        &:hover {
-            transform: rotate(360deg);
+        &--exp {
+            transform: rotate(180deg);
             // transform-origin: 30px 30px;
         }
-        &:hover::after {
+        &--exp::after {
             transform: rotate(0deg);
         }
+        &:hover {
+            opacity: .5;
+        }
     }
+    // Animation
+    @for $i from 0 through 4 {
+        &:nth-child(#{$i + 1}) {
+            // transform: translateX(10px);
+            // transition: all .3s ease-in-out;
+            // transition-delay: .2s * $i;
+            animation-delay: .05s * $i;
+        }
+    }
+
+    // &-enter {
+    //     opacity: 0.01;
+
+    //     &-active {
+    //         opacity: 1;
+    //         transition: opacity 500ms ease-in;
+    //     }
+    // }
+    // &-leave {
+    //     opacity: 1;
+
+    //     &-active {
+    //         opacity: 0.01;
+    //         transition: opacity 300ms ease-in;
+    //     }
+    // }
+    // &-appear {
+    //     opacity: 0.01;
+        
+    //     &-active {
+    //       opacity: 1;
+    //       transition: opacity .5s ease-in;
+    //     }
+    // }
 }
